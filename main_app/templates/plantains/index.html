@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-container2">
+  <h1>Plantain List</h1>
+</div>
+{% for plantain in plantains %}
+<div class="card">
+  <a href="{% url 'detail' plantain.id %}">
+    <div class="card-info">
+      <div class="card-title" style="text-transform: uppercase; font-weight: bold;">{{ plantain.name }}</div>
+      <div class="card-img">
+        <img src="{{ plantain.image_url }}" alt="" class="idx-img">
+      </div>
+      <div class="card-content">
+        <p><strong>Type:</strong> {{ plantain.ptype }}</p><br>
+        <p><strong>Description:</strong> {{ plantain.description }}</p><br>
+        <p><strong>Origin:</strong> {{ plantain.origin}}</p><br>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}
+{% endblock %}

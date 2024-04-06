@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantain Collector</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static "js/jquery-1.11.1.js" %}"></script>
+    <script src="{% static "js/rango-jquery.js" %}"></script> 
+    <style>
+      .dropdown-content {
+        min-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+      <div class="nav-wrapper">
+        <ul>
+            <li><a href="{% url 'index' %}" class="logo"><img src="{% static 'images/PlantainCollectorLogo.svg' %}" style="max-width: 75px;"></a></li>
+            <li class="title">PLANTAIN COLLECTOR</li>
+        </ul>
+        <ul class="right">
+            <li><a href="/about">About</a></li>
+            <li>
+              <a class='dropdown-trigger' href='#' data-target='dropdown2'>Plantain</a>
+              <ul id='dropdown2' class='dropdown-content dropdown-content-below'>
+                <li><a href="{% url 'plantains_create' %}">Add a Plantain</a></li>
+                <li><a href="/plantains">View All My Plantains</a></li>
+              </ul>
+            </li>
+            <li>
+              <a class='dropdown-trigger' href='#' data-target='dropdown1'>Drinks</a>
+              <ul id='dropdown1' class='dropdown-content dropdown-content-below'>
+                <li><a href="{% url 'drinks_create' %}">Add a Drink</a></li>
+                <li><a href="{% url 'drinks_index' %}">View All Drinks</a></li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+         </ul>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2024 Plantain Collector &nbsp;</div>
+  </footer>
+</body>
+</html>
